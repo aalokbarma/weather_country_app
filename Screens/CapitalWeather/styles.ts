@@ -1,40 +1,42 @@
 import { StyleSheet, Dimensions  } from "react-native";
+import Colors from "../../Constants/Colors";
+import Typography from "../../Constants/Typography";
 
 const Styles = StyleSheet.create({
     capitalWeather:{
         width: '100%',
         height: Dimensions.get('window').height,
-        backgroundColor: '#ffffff',
+        backgroundColor: Colors.WHITE,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-start',
     },
     capitalHeader:{
         width: '100%',
-        padding: 15,
-        backgroundColor: '#26abff',
+        padding: Typography.spacing.SPACING_15,
+        backgroundColor: Colors.BLUE_1,
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'row',
     },
     backIconContainer:{
-        paddingRight: 10,
+        paddingRight: Typography.spacing.SPACING_10,
         borderRightColor: '#ffffff',
         borderRightWidth: 1.5,
-        marginRight: 10,
+        marginRight: Typography.spacing.SPACING_10,
     },
     capitalHeaderText:{
-        fontSize: 25,
+        fontSize: Typography.fontSize.SIZE_25,
         fontWeight: '800',
         color: '#ffffff',
-        letterSpacing: 2,
+        letterSpacing: Typography.spacing.SPACING_2,
         textTransform: 'uppercase',
     },
     mainWeatherContainer:{
         width: '90%',
         height: '45%',
-        borderRadius: 10,
-        backgroundColor: 'rgba(0,0,0,0.4)',
+        borderRadius: Typography.spacing.SPACING_10,
+        backgroundColor: Colors.BLACK_0_4,
         marginTop: "40%",
         display: 'flex',
         justifyContent: 'center',
@@ -56,13 +58,13 @@ const Styles = StyleSheet.create({
         justifyContent: 'flex-end',
     },
     temperatureValue:{
-        fontSize: 50,
-        color: '#ffffff',
+        fontSize: Typography.fontSize.SIZE_50,
+        color: Colors.WHITE,
         fontWeight: '300',
     },
     temperatureUnit:{
-        fontSize: 15,
-        color: '#ffffff',
+        fontSize: Typography.fontSize.SIZE_15,
+        color: Colors.WHITE,
     },
     weatherContainer:{
         width : '50%',
@@ -72,8 +74,8 @@ const Styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     weatherIcon:{
-        width: 50,
-        height: 50,
+        width: Typography.spacing.SPACING_50,
+        height: Typography.spacing.SPACING_50,
         resizeMode: 'contain',
         marginLeft: '10%'
     },
@@ -86,34 +88,34 @@ const Styles = StyleSheet.create({
     windSpeedContainer:{
         width: '50%',
         height: 'auto',
-        marginVertical: 25,
+        marginVertical: Typography.spacing.SPACING_25,
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
     },
     windSpeed:{
-        fontSize: 50,
+        fontSize: Typography.fontSize.SIZE_50,
         fontWeight: '500',
-        color: '#ffffff',
-        letterSpacing: 1,
+        color: Colors.WHITE,
+        letterSpacing: Typography.spacing.SPACING_1,
     },
     speedUnit:{
-        fontSize: 25
+        fontSize: Typography.fontSize.SIZE_25
     },
     precipetation:{
-        fontSize: 50,
+        fontSize: Typography.fontSize.SIZE_50,
         fontWeight: '500',
-        color: '#ffffff',
-        letterSpacing: 1,
+        color: Colors.WHITE,
+        letterSpacing: Typography.spacing.SPACING_1,
     },
     precipetationUnit:{
-        fontSize: 25
+        fontSize: Typography.fontSize.SIZE_25
     },
     precipitationContainer:{
         width: '50%',
         height: 'auto',
-        marginVertical: 25,
+        marginVertical: Typography.spacing.SPACING_25,
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',

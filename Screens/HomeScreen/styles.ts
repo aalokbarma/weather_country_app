@@ -1,10 +1,12 @@
 import { StyleSheet, Dimensions  } from "react-native";
+import Colors from "../../Constants/Colors";
+import Typography from "../../Constants/Typography";
 
 const Styles = StyleSheet.create({
     homeScreen:{
         width: '100%',
         height: Dimensions.get('window').height,
-        backgroundColor: '#ffffff',
+        backgroundColor: Colors.WHITE,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-start',
@@ -21,16 +23,15 @@ const Styles = StyleSheet.create({
     },
     homeHeader:{
         width: '100%',
-        padding: 15,
+        padding: Typography.spacing.SPACING_15,
         display: 'flex',
         alignItems :'center',
-        // backgroundColor: '#26abff',
     },
     homeHeaderText:{
-        fontSize: 25,
+        fontSize: Typography.fontSize.SIZE_25,
         fontWeight: '500',
-        color: '#26abff',
-        letterSpacing: 2,
+        color: Colors.BLUE_1,
+        letterSpacing: Typography.spacing.SPACING_2,
     },
     homeScreenForm:{
         width: '80%',
@@ -38,28 +39,28 @@ const Styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'flex-start',
         justifyContent: 'space-around',
-        padding: 25,
+        padding: Typography.spacing.SPACING_25,
         borderWidth: 1.5,
-        borderColor: '#26abff',
-        borderRadius: 10,
+        borderColor: Colors.BLUE_1,
+        borderRadius: Typography.spacing.SPACING_10,
         marginTop: '45%',
-        backgroundColor: 'rgba(255,255,255,0.1)',
+        backgroundColor: Colors.WHITE_0_1,
     },
     inputFormText:{
-        fontSize: 20,
+        fontSize: Typography.fontSize.SIZE_20,
         fontWeight: '500',
-        color: '#26abff',
+        color: Colors.BLUE_1,
         textDecorationStyle: 'solid',
         textDecorationLine: 'underline',
     },
     textInput:{
-        fontSize: 15,
-        color: '#009dff',
-        borderBottomColor: '#009dff',
+        fontSize: Typography.fontSize.SIZE_15,
+        color: Colors.BLUE_2,
+        borderBottomColor: Colors.BLUE_2,
         borderBottomWidth: 1,
         borderStyle: 'solid',
         width: '100%',
-        marginTop: 25,
+        marginTop: Typography.spacing.SPACING_25,
         
     },
     submitButtonContainer:{
@@ -67,20 +68,20 @@ const Styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 25,
+        marginTop: Typography.spacing.SPACING_25,
     },
     submitButton: {
         width: '50%',
         height: 'auto',
-        padding: 10,
-        fontSize: 15,
+        padding: Typography.spacing.SPACING_10,
+        fontSize: Typography.fontSize.SIZE_15,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         fontWeight: '600',
-        borderRadius: 5,
+        borderRadius: Typography.spacing.SPACING_5,
         textAlign: 'center',
-        letterSpacing: 1,
+        letterSpacing: Typography.spacing.SPACING_1,
     }
 });
 

@@ -10,14 +10,15 @@
 
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
+import { navigationRef } from './RootNavigation';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import Navigation from './Navigation';
 
 const App = () => {
   
   return (
     <SafeAreaView style = {Styles.container}>
-      <NavigationContainer>
+      <NavigationContainer ref={navigationRef}>
         <Navigation />
       </NavigationContainer>
     </SafeAreaView>

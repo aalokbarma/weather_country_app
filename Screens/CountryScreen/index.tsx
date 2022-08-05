@@ -1,57 +1,39 @@
 import { View, Text, Image, TouchableOpacity, ImageBackground } from 'react-native';
-import React, { useState } from 'react';
+import React from 'react';
 import Styles from './styles';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import { useNavigation } from '@react-navigation/native';
-import { useRoute } from '@react-navigation/native';
 import axios from 'axios';
 import countryScreenBg from '../../Assets/CountryScreenBG.jpg';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../types';
+import { COUNTRYSCREEN_BACK_BUTTON, COUNTRYSCREEN_HEADER_TEXT, COUNTRYSCREEN_IMAGE_BACKGROUND } from '../../Constants/Strings';
+import Colors from '../../Constants/Colors';
+import Typography from '../../Constants/Typography';
 
-interface Countrytypes {
-    countryData:{
-        countryData: {
-            capital: string,
-            name: {
-                common: string
-            },
-            flags: {
-                png: string
-            },
-            population: string
-        }
-    }
-}
-
-const CountryScreen = () => {
-
-    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-
-    const route = useRoute();
-    const response:any = route.params;
-    const countryData = response.countryData[0]
-
-    const ACCESS_KEY = '17cffae7207518cb304022f1568d94e5'
+export const getCapitalDetails = async ({countryData}:any) =>
+    await axios.get(`http://api.weatherstack.com/current?access_key=${ACCESS_KEY}&query=${countryData.capital[0]}`);
     
-    const getCapitalDetails = async () =>
-        await axios.get(`http://api.weatherstack.com/current?access_key=${ACCESS_KEY}&query=${countryData.capital[0]}`);
+export const ACCESS_KEY = '17cffae7207518cb304022f1568d94e5';
+const CountryScreen = ({navigation, route} : any) => {
+
+
+    const countryData = route?.params?.countryData[0]
+
+    
 
     const onWeatherButtonPress = async () => {
-        const response = await getCapitalDetails();
+        const response = await getCapitalDetails({countryData});
         const capitalDetails = response.data
         navigation.navigate('CapitalWeather', {capitalDetails})
     }
 
   return (
-    <ImageBackground source={countryScreenBg} style = { Styles.countryScreen}>
+    <ImageBackground source={countryScreenBg} style = { Styles.countryScreen} testID = {COUNTRYSCREEN_IMAGE_BACKGROUND}>
         <View style = {Styles.countryHeader}>
-            <TouchableOpacity style = {Styles.backIconContainer} onPress = {() => navigation.goBack()}>
-                <AntDesign name="left" size={24} color='#26abff' />
+            <TouchableOpacity style = {Styles.backIconContainer} onPress = {() => navigation.goBack()} testID = {COUNTRYSCREEN_BACK_BUTTON}>
+                <AntDesign name="left" size={Typography.fontSize.SIZE_24} color= {Colors.BLUE_1} />
             </TouchableOpacity>
-            <Text style = {Styles.countryHeaderText}>
+            <Text style = {Styles.countryHeaderText} testID = {COUNTRYSCREEN_HEADER_TEXT}>
                 {countryData?.name.common}
             </Text>
         </View>
@@ -67,7 +49,7 @@ const CountryScreen = () => {
         <View style = {Styles.countryDetailsContainer}>
             <View style = {Styles.detailsSection}>
                 <View style = {Styles.iconContainer}>
-                    <FontAwesome5 name="place-of-worship" size={40} color="#444" />
+                    <FontAwesome5 name="place-of-worship" size={Typography.fontSize.SIZE_40} color={Colors.GREY_4} />
                 </View>
                 <View style = {Styles.detailsContainer}>
                     <Text style = {Styles.detailsTitle}>
@@ -80,7 +62,7 @@ const CountryScreen = () => {
             </View>
             <View style = {Styles.detailsSection}>
                 <View style = {Styles.iconContainer}>
-                    <MaterialIcons name="groups" size={40} color="#444" />
+                    <MaterialIcons name="groups" size={Typography.fontSize.SIZE_40} color={Colors.GREY_4} />
                 </View>
                 <View style = {Styles.detailsContainer}>
                     <Text style = {Styles.detailsTitle}>
@@ -93,7 +75,7 @@ const CountryScreen = () => {
             </View>
             <View style = {Styles.detailsSection}>
                 <View style = {Styles.iconContainer}>
-                    <MaterialIcons name="place" size={40} color="#444" />
+                    <MaterialIcons name="place" size={Typography.fontSize.SIZE_40} color={Colors.GREY_4} />
                 </View>
                 <View style = {Styles.detailsContainer}>
                     <Text style = {Styles.detailsTitle}>

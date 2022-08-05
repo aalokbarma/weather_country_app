@@ -1,4 +1,6 @@
 import { StyleSheet, Dimensions  } from "react-native";
+import Colors from "../../Constants/Colors";
+import Typography from "../../Constants/Typography";
 
 const Styles = StyleSheet.create({
     countryScreen:{
@@ -10,17 +12,16 @@ const Styles = StyleSheet.create({
     },
     countryHeader:{
         width: '100%',
-        padding: 15,
-        // backgroundColor: '#26abff',
+        padding: Typography.spacing.SPACING_15,
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'row'
     },
     countryHeaderText:{
-        fontSize: 25,
+        fontSize: Typography.fontSize.SIZE_25,
         fontWeight: '800',
-        color: '#26abff',
-        letterSpacing: 2,
+        color: Colors.BLUE_1,
+        letterSpacing: Typography.spacing.SPACING_2,
         textTransform: 'uppercase',
     },
     flagContainer:{
@@ -29,11 +30,11 @@ const Styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        paddingVertical: 25,
+        paddingVertical: Typography.spacing.SPACING_25,
     },
     countryName:{
-        fontSize: 25,
-        color: '#ffffff',
+        fontSize: Typography.fontSize.SIZE_25,
+        color: Colors.WHITE,
         fontWeight: '600',
     },
     countryDetailsContainer:{
@@ -42,12 +43,12 @@ const Styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'flex-start',
         justifyContent: 'space-around',
-        padding: 25,
-        backgroundColor: '#ffffff',
+        padding: Typography.spacing.SPACING_25,
+        backgroundColor: Colors.WHITE,
     },
     detailsSection:{
         width: '90%',
-        padding: 15,
+        padding: Typography.spacing.SPACING_15,
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
@@ -63,22 +64,22 @@ const Styles = StyleSheet.create({
         justifyContent: 'center',
     },
     detailsTitle:{
-        fontSize: 18,
+        fontSize: Typography.fontSize.SIZE_18,
         fontWeight: '800',
-        letterSpacing: 1,
-        color: '#444',
+        letterSpacing: Typography.spacing.SPACING_1,
+        color: Colors.GREY_4,
     },
     detailsDetail:{
-        fontSize: 16,
+        fontSize: Typography.fontSize.SIZE_16,
         fontWeight: '500',
-        letterSpacing: 1,
-        color: '#777',
+        letterSpacing: Typography.spacing.SPACING_1,
+        color: Colors.GREY_7,
     },
     backIconContainer:{
-        paddingRight: 10,
-        borderRightColor: '#26abff',
+        paddingRight: Typography.spacing.SPACING_10,
+        borderRightColor: Colors.BLUE_1,
         borderRightWidth: 1.5,
-        marginRight: 10,
+        marginRight: Typography.spacing.SPACING_10,
     },
     flagImageContainer:{
         width: '100%',
@@ -88,8 +89,8 @@ const Styles = StyleSheet.create({
         justifyContent: 'center',
     },
     flagImage:{
-        width: 200,
-        height: 150,
+        width: Typography.spacing.SPACING_200,
+        height: Typography.spacing.SPACING_150,
         resizeMode: 'contain',
     },
     weatherButtonContainer:{
@@ -98,24 +99,24 @@ const Styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 25,
+        marginTop: Typography.spacing.SPACING_25,
     },
     weatherButton:{
         width: '70%',
         height: 'auto',
-        padding: 10,
+        padding: Typography.spacing.SPACING_10,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        backgroundColor: '#009dff',
-        borderRadius: 5,
+        backgroundColor: Colors.BLUE_2,
+        borderRadius: Typography.spacing.SPACING_5,
     },
     weatherButtonText:{
-        fontSize: 15,
+        fontSize: Typography.fontSize.SIZE_15,
         fontWeight: '600',
-        letterSpacing: 1,
-        color: '#ffffff'
+        letterSpacing: Typography.spacing.SPACING_1,
+        color: Colors.WHITE
     },
 });
 

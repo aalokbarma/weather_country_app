@@ -3,33 +3,30 @@ import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, Touchabl
 import React, {useState, useEffect} from 'react';
 import Styles from './styles';
 import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
 import homeScreenBg from '../../Assets/HomeScreenBG.jpg';
-import { RootStackParamList } from '../../types';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { HOMESCREEN_KEYBOARD_AVOIDING_VIEW, HOME_SCREEN_SUBMIT_BUTTON } from '../../Constants/Strings';
+import Colors from '../../Constants/Colors';
 
-const HomeScreen = () => {
+export const getCountry = async (country :any) =>
+    await axios.get(`https://restcountries.com/v3.1/name/${country}`);
+
+const HomeScreen = ({navigation} :any) => {
 
     const [country, setCountry] = useState('');
-    const [buttonColor, setButtonColor] = useState('#949494');
+    const [buttonColor, setButtonColor] = useState(Colors.DISABLED_BUTTON);
 
-    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-
-        const getCountry = async () =>
-            await axios.get(`https://restcountries.com/v3.1/name/${country}`);
-        
     
     useEffect(() => {
         if(country != undefined && country != '') {
-            setButtonColor('#009dff')
+            setButtonColor(Colors.BLUE_2)
         } else {
-            setButtonColor('#949494')
+            setButtonColor(Colors.DISABLED_BUTTON)
         }
     }, [country])
 
     const onSubmit = async () => {
-        if(buttonColor == '#009dff') {
-            const response = await getCountry()
+        if(buttonColor == Colors.BLUE_2) {
+            const response = await getCountry(country)
             const countryData = response.data
             navigation.navigate("Country", {countryData})
             setCountry('')
@@ -43,7 +40,7 @@ const HomeScreen = () => {
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={Styles.homeScreen}
-      testID = 'HomeScreenKeyboardAvoidingView'
+      testID = {HOMESCREEN_KEYBOARD_AVOIDING_VIEW}
     >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} style = {Styles.touchableWithoutFeedback}>
             <ImageBackground source={homeScreenBg} style ={Styles.mainContainer}>
@@ -58,10 +55,10 @@ const HomeScreen = () => {
                             placeholder='Enter Country'
                             value={country}
                             onChangeText = {setCountry}
-                            placeholderTextColor = {'#0da2ff'}
+                            placeholderTextColor = {Colors.PLACEHOLDER}
                         />
-                        <TouchableOpacity style = {Styles.submitButtonContainer} onPress = {onSubmit}>
-                            <Text style = {[Styles.submitButton,{backgroundColor: buttonColor, color: '#ffffff'}]}>Submit</Text>
+                        <TouchableOpacity style = {Styles.submitButtonContainer} onPress = {onSubmit} testID = {HOME_SCREEN_SUBMIT_BUTTON}>
+                            <Text style = {[Styles.submitButton,{backgroundColor: buttonColor, color: Colors.WHITE}]}>Submit</Text>
                         </TouchableOpacity>
                 </View>
             </ImageBackground>
